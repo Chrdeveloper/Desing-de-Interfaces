@@ -25,8 +25,10 @@ def longCad(n):
         cont = cont + 1
         aux = n[cont]
     return cont
-
-
-
-
-
+def esVocal(n):
+    rang = 'aeiouáéíóúü'
+    for i in range(longCad(n)):
+        for j in range(longCad(rang)):
+            if(rang[i] == n[j]):
+                return True
+    return False
