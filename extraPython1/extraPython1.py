@@ -18,5 +18,15 @@ def max_de_tres(a, b, c):
         else:
             return c
 
+def longCad(n):
+    aux = n[0]
+    cont = 0
+    while(aux != None):
+        cont = cont + 1
+        aux = n[cont]
+    return cont
+
+
+
 
 
