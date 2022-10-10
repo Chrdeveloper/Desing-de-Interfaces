@@ -51,6 +51,15 @@ def reverse(n):
         cadRev += n[longCad(n)-(i+1)]
     return cadRev
 
+def palindromo(n):
+    if(n == reverse(n)):
+        return True
+    else:
+        return False
+
+def superposicion(n):
+    iguales = False
+    for i in range
 
 
 
