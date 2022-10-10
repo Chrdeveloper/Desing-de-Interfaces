@@ -71,6 +71,11 @@ def generar_n_character(num,let):
         cadRes += let
     return  cadRes
 
+def histograma(n):
+    for i in range (longCad(n)):
+        print(generar_n_character(longCad(n[i]),'*'))
+
+
 
 
 
