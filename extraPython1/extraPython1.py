@@ -32,3 +32,21 @@ def esVocal(n):
             if(rang[i] == n[j]):
                 return True
     return False
+
+
+def mult(n):
+    multip = 1
+    for i in range(longCad(n)):
+        multip *= n[i]
+    return multip
+def sum(n):
+    sum = 1
+    for i in range(longCad(n)):
+        sum *= n[i]
+    return sum
+
+
+
+
+
+
