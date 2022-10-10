@@ -57,9 +57,15 @@ def palindromo(n):
     else:
         return False
 
-def superposicion(n):
+def superposicion(n,s):
     iguales = False
-    for i in range
+    for i in range(longCad(n)):
+        if(n[i] == s[i]):
+            iguales = True
+    else:
+        iguales = False
+    return iguales
+def 
 
 
 
