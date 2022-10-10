@@ -65,7 +65,11 @@ def superposicion(n,s):
     else:
         iguales = False
     return iguales
-def 
+def generar_n_character(num,let):
+    cadRes = ''
+    for i in range(num):
+        cadRes += let
+    return  cadRes
 
 
 

@@ -5,7 +5,7 @@ from extraPython1 import esVocal
 from extraPython1 import mult
 from extraPython1 import sum
 from extraPython1 import reverse
+from extraPython1 import generar_n_character
 
-
-print (reverse('Zambomba'))
+print (generar_n_character(4, 'n'))
 
