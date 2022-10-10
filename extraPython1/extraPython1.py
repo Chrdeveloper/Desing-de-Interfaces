@@ -1,4 +1,4 @@
-import numpy
+
 
 def max(a, b):
     if (b > a):
@@ -19,17 +19,17 @@ def max_de_tres(a, b, c):
             return c
 
 def longCad(n):
-    aux = n[0]
+    i = 0
     cont = 0
-    while(aux != None):
+
+    for i in range (len(n)):
         cont = cont + 1
-        aux = n[cont]
     return cont
 def esVocal(n):
     rang = 'aeiouáéíóúü'
     for i in range(longCad(n)):
         for j in range(longCad(rang)):
-            if(rang[i] == n[j]):
+            if(rang[j] == n[i]):
                 return True
     return False
 
@@ -42,9 +42,14 @@ def mult(n):
 def sum(n):
     sum = 1
     for i in range(longCad(n)):
-        sum *= n[i]
+        sum += n[i]
     return sum
 
+def reverse(n):
+    cadRev = ''
+    for i in range(longCad(n)):
+        cadRev += n[longCad(n)-(i+1)]
+    return cadRev
 
 
 
