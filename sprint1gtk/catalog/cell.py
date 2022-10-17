@@ -6,30 +6,31 @@ from gi.repository import Gtk
 from detail_window import SubWindow
 
 
-class Cell(Gtk.EventBox):
-    name = None
+class Cell(Gtk.EventBox):#Decimos que tipo de clase es
+    name = None#Declaramos variables de clase...
     descripcion = None
     image = Gtk.Image()
 
 
     def __init__(self, name, image):
-        super().__init__()
-        self.name = name
-        self.image = image
-        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
-        box.pack_start(Gtk.Label(label=name), False, False, 0)
-        box.pack_start(self.image, True, True, 0)
-        self.add(box)
-        self.connect("button-release-event", self.on_click)
+        super().__init__()#Llamamos al superconstructor
+        self.name = name#El name tendra el valor name asignado en el consctructor y que se le otorga cuando llaman al metodo
+        self.image = image#El name tendra el valor image asignado al igual que en name por el metodo que lo llama
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)#creamos y signamos  e identacion en la presentacion en la box
+        box.pack_start(Gtk.Label(label=name), False, False, 0)#Añadimos el label que es la imagen en la box
+        box.pack_start(self.image, True, True, 0)#Añadimos la imagen en el box
+        self.add(box)#Añadimos la box con el contenido añadido previamente
+        self.connect("button-release-event", self.on_click) #Conectamos el evento de pulsar una imagen usando on_click
 
-    def on_click(self, widget, event):
-        self.image = self.getImage()
-        self.annadir_descr()
-        win = SubWindow(self.name, self.image, self.descripcion)
-        win.show_all()
+    def on_click(self, widget, event):#Debemos pasarle el evento(asignado en el connect) y el widget que es la propia cell
+        self.image = self.getImage() #Debido al como implementa gtk los widget tenemos que reasignarle otra imagen(aunque sea la misma) a la imagen gtk, por ello en este metodo segun el name reasignamos la variable imagen
+        self.annadir_descr() #Asigna a la variable de clase descripcion, una descripcion que concuerde con la imagen
+        win = SubWindow(self.name, self.image, self.descripcion) #Le damos al constructor de la siguiente clase el nombre, la imagen y descripcion
+        win.show_all()#Mostramos la pantalla con la imagen y su descripcion
         Gtk.main()
 
     def annadir_descr(self):
+
         if self.name == "Corki actimel":
             self.descripcion = "Corki actimel es una skin legendaria, que nos recuerda a todos la necesidad de tomar actimel para estar sanos, no disponible actualmente"
         elif self.name == "Robot volador":
