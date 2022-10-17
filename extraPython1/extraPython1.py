@@ -74,7 +74,7 @@ def generar_n_character(num,let):
 def histograma(n):
     for i in range (longCad(n)):
         print(generar_n_character(longCad(n[i]),'*'))
-
+    pass
 
 
 
