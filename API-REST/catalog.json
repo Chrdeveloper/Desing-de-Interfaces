@@ -1,1 +1,27 @@
-
+[
+  {
+    "name": "Anivia",
+    "description": "Mi campeón favorito, sin duda alguna Anivia, la criofenix. No tendrá mucho ataque, no tendrá mucha defensa... pero me encanta. Es muy difícil de controlar, sobre todo la Q, porque tienes que petarla y controlar la distancia muy bien para stunear. Mi campeón favorito, sin duda alguna Anivia, la criofenix.",
+    "image_url":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/API-REST/Anivia.png"
+  },
+  {
+    "name": "Corki",
+    "description": "Corki actimel es una skin legendaria, que nos recuerda a todos la necesidad de tomar actimel para estar sanos, no disponible actualmente",
+    "image_url":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/API-REST/Corki.png"
+  },
+  {
+    "name": "Chogath",
+    "description": "Leí que jugar chogath caballero trae una notable mejora en el léxico. Me quedé absorto ante tal afirmación carente de raciocinio. Me exacerba cuando de soslayo, un petulante enarbola cultismos de rimbombantes como banales corolarios cuyo efímero fin es jugar chogath",
+    "image_url":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/API-REST/Chogath.png"
+  },
+  {
+    "name": "Gragas",
+    "description": "El famoso gragas gallego, debido a sus capacidades como el levantamiento de vacas y la capacidad de beber cerveza fue nombrado gallego del año",
+    "image_url":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/API-REST/Gragas.png"
+  },
+  {
+    "name": "Malphite",
+    "description": "Debido al increible aumento de la popularidad del lol, whasap no perdio el tiempo y quiso sacar una skin colaborando con riot games",
+    "image_url":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/API-REST/Malphite.png"
+  }
+]
