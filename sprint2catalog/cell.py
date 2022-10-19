@@ -29,18 +29,7 @@ class Cell(Gtk.EventBox):#Decimos que tipo de clase es
         win.show_all()#Mostramos la pantalla con la imagen y su descripcion
         Gtk.main()
 
-    def annadir_descr(self):
-
-        if self.name == "Corki actimel":
-            self.descripcion = "Corki actimel es una skin legendaria, que nos recuerda a todos la necesidad de tomar actimel para estar sanos, no disponible actualmente"
-        elif self.name == "Robot volador":
-            self.descripcion = "Mi campeón favorito, sin duda alguna Anivia, la criofenix. No tendrá mucho ataque, no tendrá mucha defensa... pero me encanta. Es muy difícil de controlar, sobre todo la Q, porque tienes que petarla y controlar la distancia muy bien para stunear. Mi campeón favorito, sin duda alguna Anivia, la criofenix."
-        elif self.name == "Chogath caballero":
-            self.descripcion = "Leí que jugar chogath caballero trae una notable mejora en el léxico. Me quedé absorto ante tal afirmación carente de raciocinio. Me exacerba cuando de soslayo, un petulante enarbola cultismos de rimbombantes como banales corolarios cuyo efímero fin es jugar chogath"
-        elif self.name == "Gragas campesino":
-            self.descripcion = "El famoso gragas gallego, debido a sus capacidades como el levantamiento de vacas y la capacidad de beber cerveza fue nombrado gallego del año"
-        elif self.name == "Malphite whasap":
-            self.descripcion = "Debido al increible aumento de la popularidad del lol, whasap no perdio el tiempo y quiso sacar una skin colaborando con riot games"
+    
     def getImage(self):
         img = Gtk.Image()
         if self.name == "Corki actimel":

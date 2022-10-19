@@ -9,7 +9,7 @@ from cell import Cell
 class MainWindow(Gtk.Window):
     flowbox = Gtk.FlowBox()
 
-    def __init__(self):
+    def __init__(self, data_source):
         super().__init__(title="Catalogo")  # Asignamos el titulo de la ventana
         self.connect("destroy", Gtk.main_quit)  # Aseguramos que se cierre en la x
         self.set_border_width(15)  # Asignamos el borde que queramos
