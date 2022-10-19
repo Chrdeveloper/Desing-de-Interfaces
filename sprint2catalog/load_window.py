@@ -17,7 +17,7 @@ class LoadWindow(Gtk.Window):
         self.connect("destroy", Gtk.main_quit)#Permitimos cerrar la pantalla
         self.set_border_width(50)
         self.set_resizable(False)#No dejamos que cambie el tamaño de la ventana
-
+        self.set_position(Gtk.WindowPosition.CENTER)
         self.spinner.props.active = True#Dejamos que vaya dando vuelvas
 
         #Añdimos los elementos a la box
