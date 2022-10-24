@@ -59,5 +59,6 @@ class MainWindow(Gtk.Window):
         label = Gtk.Label("Hecho por Christian Martinez")
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
         box.pack_start(label, True, True, 0)
+        win.set_position(Gtk.WindowPosition.CENTER)
         win.add(box)
         win.show_all()
