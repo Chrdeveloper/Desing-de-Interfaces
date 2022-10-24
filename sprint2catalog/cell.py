@@ -26,6 +26,6 @@ class Cell(Gtk.EventBox):#Decimos que tipo de clase es
     def on_click(self, widget, event):#Debemos pasarle el evento(asignado en el connect) y el widget que es la propia cell
         im = Gtk.Image() #Debido al como implementa gtk los widget tenemos que reasignarle otra imagen(aunque sea la misma) a la imagen gtk, por ello en este metodo segun el name reasignamos la variable imagen
         im.set_from_pixbuf(self.image.get_pixbuf())
-        win = SubWindow(self.name, self.image, self.descripcion) #Le damos al constructor de la siguiente clase el nombre, la imagen y descripcion
+        win = SubWindow(self.name, im, self.description) #Le damos al constructor de la siguiente clase el nombre, la imagen y descripcion
         win.show_all()#Mostramos la pantalla con la imagen y su descripcion
         Gtk.main()
