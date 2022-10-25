@@ -1,3 +1,4 @@
+import shutil
 import threading
 
 import gi
@@ -34,4 +35,35 @@ class LoadWindow(Gtk.Window):
 
     def load_json(self):
 
-        response = requests.get()
+        response = requests.get('https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/catalog.json')
+
+        json_list = response.json()
+
+        result = []
+
+
+        for json_item in json_list:
+            fallos = json_item.get('fallos')
+
+            imageUrl = json_item.get('image_url')
+
+            r = requests.get(imageUrl, stream=True)
+            with open('temp.png','wb') as f:
+                shutil.copyfileobj(r.raw, f)
+            image = Gtk.Image.new_from_file('temp.png')
+            result.append({"fallos": fallos, "gtk image": image})
+
+
+
+        GLib.idle_add(self.start_main_window, result)
+
+
+    def start_main_window(self, listaObj):
+        win = MainWindow(listaObj)
+        
+        win.show_all()
+
+        self.disconnect_by_func(Gtk.main_quit)
+
+        self.close()
+
