@@ -3,9 +3,11 @@ import threading
 
 import gi
 import requests
+from gi.overrides import GLib
 
 gi.require_version("Gtk","3.0")
 from gi.repository import Gtk
+from MainWindow import MainWindow
 
 class LoadWindow(Gtk.Window):
     label = Gtk.Label("Cargando elementos")
@@ -45,9 +47,9 @@ class LoadWindow(Gtk.Window):
         for json_item in json_list:
             fallos = json_item.get('fallos')
 
-            imageUrl = json_item.get('image_url')
+            url_imagen = json_item.get('url_imagen')
 
-            r = requests.get(imageUrl, stream=True)
+            r = requests.get(url_imagen, stream=True)
             with open('temp.png','wb') as f:
                 shutil.copyfileobj(r.raw, f)
             image = Gtk.Image.new_from_file('temp.png')
