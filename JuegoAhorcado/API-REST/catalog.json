@@ -1,30 +1,30 @@
 [
   {
-    "fallos":"0",
+    "fallos":0,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado0.png"
   },
   {
-    "fallos":"1",
+    "fallos":1,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado1.png"
   },
   {
-    "fallos":"2",
+    "fallos":2,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado2.png"
   },
   {
-    "fallos":"3",
+    "fallos":3,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado3.png"
   },
   {
-    "fallos":"4",
+    "fallos":4,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado4.png"
   },
   {
-    "fallos":"5",
+    "fallos":5,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado5.png"
    },
    {
-    "fallos":"6",
+    "fallos":6,
     "url_imagen":"https://raw.githubusercontent.com/llorchcluni/Desing-de-Interfaces/master/JuegoAhorcado/API-REST/Ahorcado6.png"
    }
 ]
