@@ -7,41 +7,39 @@ from gi.repository import Gtk
 
 class MainWindow(Gtk.Window):
     lista = ["casa", "cerdo", "portatil", "cuchara", "trompeta", "desayuno"]
+
     fallos = 0
-    letra = ""
-    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=15)
+
+    label = Gtk.Label
+
+    img = Gtk.Image
+    boton = Gtk.Button()
     entry = Gtk.Entry()
-    esperando = True
-    position = 0
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
     def __init__(self, listaObj):
         super().__init__()
-        gword = Gtk.Label(self.palabra_adivinar())
-        boton = Gtk.Button()
-        boton.connect("clicked", self.clicked)
 
-        while self.fallos < 6:
-            self.box.pack_start(gword, True, True, 0)
-            self.box.pack_start(self.genImg(listaObj), True, True, 0)
+        self.label = self.palabra_adivinar()
 
-            self.box.pack_start(self.entry, True, True, 0)
+        self.img = self.genImg(listaObj)
 
-            self.box.pack_start(boton, True, True, 0)
+        self.boton.connect("clicked", self.onClick, listaObj)
 
-            self.add(self.box)
-            if self.esperando == False:
-                if self.letra_igual() != -1:
-                    self.position = self.letra_igual()
-                    gword = self.palabra_modificada(gword, self.position)
-                    self.esperando = True
+        self.box.pack_start(self.label, True, True, 0)
+        self.box.pack_start(self.img, True, True, 0)
+        self.box.pack_start(self.entry, True, True, 0)
+        self.box.pack_start(self.boton, True, True, 0)
 
-            self.remove(self.box)
+        self.add(self.box)
 
-    def letra_igual(self):
+    def letra_igual(self, letra, aux):
         position = 0
+        letraMet = letra
         for letter in self.lista[0]:
-            if letter == self.letra:
-                return position
+            if letter == letraMet:
+                if aux[position] == '_':
+                    return position
             position += 1
         self.fallos += 1
         return -1
@@ -50,17 +48,18 @@ class MainWindow(Gtk.Window):
         palabra = ''
         for i in range(len(self.lista[1])):
             palabra += '_'
-        return palabra
+        return Gtk.Label(palabra)
 
-    def palabra_modificada(self, gword, posicion):
+    def palabra_modificada(self, gword, posicion, text):
         palabra = ''
         position = 0
         for letter in gword:
-            if letter == '_':
-                if self.position == posicion:
-                    palabra += self.letra
+
+            if position == posicion:
+                palabra += text
             else:
-                palabra += '_'
+                palabra += gword[position]
+
             position += 1
 
         return palabra
@@ -72,6 +71,40 @@ class MainWindow(Gtk.Window):
                 img = item.get("gtk image")
         return img
 
-    def clicked(self, event):
-        self.esperando = False
-        self.letra = self.entry.get_text()
+    def onClick(self,event, listaObj):
+
+
+
+        text = self.entry.get_text()
+
+        #Algunos metodos nos pediran texto y no una Label, por lo que generamos texto de la label mediante el siguiente metodo y lo metemos en una variable
+        aux = self.label.get_text()
+
+        acierto = self.letra_igual(text,aux)
+        if acierto != -1:
+
+            self.label.set_label(self.palabra_modificada(aux, acierto, text))
+        else:
+            self.fallos += 1
+            self.img = self.genImg(listaObj)
+
+        self.modificador()
+        self.actualizador(listaObj)
+
+    def modificador(self):
+        self.box.remove(self.label)
+        self.box.remove(self.img)
+        self.box.remove(self.entry)
+        self.box.remove(self.boton)
+
+        self.remove(self.box)
+
+    def actualizador(self,listaObj):
+
+        self.box.pack_start(self.label, True, True, 0)
+        self.img.set_from_pixbuf(self.genImg(listaObj).get_pixbuf())
+        self.box.pack_start(self.img, True, True, 50)
+        self.box.pack_start(self.entry, True, True, 0)
+        self.box.pack_start(self.boton, True, True, 0)
+
+        self.add(self.box)
