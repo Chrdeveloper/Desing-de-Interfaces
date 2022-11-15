@@ -8,9 +8,9 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-
     >
-    <RelativeLayout
+
+    <LinearLayout
         android:id="@+id/home_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,19 +21,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/purple_500"
-            android:minHeight="@attr/actionBarSize"
+            android:minHeight="?attr/actionBarSize"
             android:navigationIcon="@drawable/ic_baseline_dehaze_24"
             app:title="Navigation Drawer"
             />
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_content" />
 
-    </RelativeLayout>
+    </LinearLayout>
+
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
+        android:fitsSystemWindows="true"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"
+        />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

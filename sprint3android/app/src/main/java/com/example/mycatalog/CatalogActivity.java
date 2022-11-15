@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,7 @@ public class CatalogActivity extends AppCompatActivity implements  NavigationVie
     NavigationView navigationView;
     Toolbar toolbar;
     Menu menu;
+    private Context context = this;
 
 
     @Override
@@ -45,17 +47,11 @@ public class CatalogActivity extends AppCompatActivity implements  NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentMain()).commit();
 
 
 
-        //Button navegador = findViewById(R.id.boton2);
-        //    navegador.setOnClickListener(new View.OnClickListener() {
-        //        @Override
-        //        public void onClick(View view) {
-        //            Intent intent = new Intent(context, DetailActivity.class );
-        //            context.startActivity(intent);
-        //        }
-        //    });
+
 
 
 
@@ -66,16 +62,18 @@ public class CatalogActivity extends AppCompatActivity implements  NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_home:
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentMain()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_prenda:
-                startActivity(new Intent(CatalogActivity.this, DetailActivity.class));
-                break;
             case R.id.nav_boton:
-
+                Fragment fragmentAbout = new Fragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentAbout()).commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
         }
 
 
-        return false;
+        return true;
     }
 }
