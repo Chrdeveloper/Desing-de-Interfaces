@@ -23,8 +23,7 @@ public class Skin {
             URL url = new URL(image);
             URLConnection connection = url.openConnection();
             InputStream inputStream = connection.getInputStream();
-            Bitmap resultBitMap = BitmapFactory.decodeStream(inputStream);
-            this.imagenBitMap = resultBitMap;
+            this.imagenBitMap = BitmapFactory.decodeStream(inputStream);
 
             this.nombre = jsonObject.getString("name");
         }catch (JSONException ex){
