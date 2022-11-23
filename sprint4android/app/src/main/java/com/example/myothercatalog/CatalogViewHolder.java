@@ -23,7 +23,7 @@ public class CatalogViewHolder extends RecyclerView.ViewHolder {
         String nombre = skin.getNombre();
         this.textView.setText(nombre);
 
-        this.imageView.setImageBitmap(skin.getImage());
+        Util.downloadBitmapToImageView(skin.getImagen(), this.imageView);
 
     }
 

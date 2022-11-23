@@ -16,6 +16,7 @@ public class CatalogSkin {
             try {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Skin character = new Skin(jsonObject);
+
                 skinList.add(character);
             }catch (JSONException ex){
                 throw new RuntimeException(ex);

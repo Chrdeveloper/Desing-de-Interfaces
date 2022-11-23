@@ -1,46 +1,47 @@
 package com.example.myothercatalog;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.renderscript.ScriptGroup;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-
 public class Skin {
-    private Bitmap imagenBitMap;
+    private String imagen;
     private String nombre;
+    private String descripcion;
 
-    public Skin(JSONObject jsonObject){
+
+
+    public Skin(JSONObject jsonObject) {
         try {
-            String image = jsonObject.getString("image_url");
-            URL url = new URL(image);
-            URLConnection connection = url.openConnection();
-            InputStream inputStream = connection.getInputStream();
-            this.imagenBitMap = BitmapFactory.decodeStream(inputStream);
-
+            imagen = jsonObject.getString("image_url");
+            this.imagen = imagen;
+            this.descripcion = jsonObject.getString("description");
             this.nombre = jsonObject.getString("name");
-        }catch (JSONException ex){
+        } catch (JSONException ex) {
             throw new RuntimeException();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+        }
     }
-    public Bitmap getImage() {
-        return imagenBitMap;
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
